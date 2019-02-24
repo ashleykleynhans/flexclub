@@ -44,9 +44,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: devprox
-      POSTGRES_USER: devprox
-      POSTGRES_PASSWORD: D3vPr0X
+      POSTGRES_DB: flexclub
+      POSTGRES_USER: flexclub
+      POSTGRES_PASSWORD: Fl3X(1u8
       SERVICE_TAGS: dev
       SERVICE_NAME: pgsql
     volumes:
