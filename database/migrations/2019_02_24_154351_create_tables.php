@@ -16,7 +16,7 @@ class CreateTables extends Migration
         Schema::create('venues', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('uuid')->unsigned()->unique();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->jsonb('json_data')->nullable();
             $table->timestamps();
         });
@@ -32,7 +32,7 @@ class CreateTables extends Migration
         Schema::create('organizers', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('uuid')->unsigned()->unique();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->jsonb('json_data')->nullable();
             $table->timestamps();
         });
@@ -56,14 +56,14 @@ class CreateTables extends Migration
             $table->bigInteger('venue_id')->unsigned();
             $table->bigInteger('organizer_id')->unsigned();
             $table->bigInteger('location_id')->unsigned();
-            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->dateTime('started_at');
             $table->dateTime('ended_at');
             $table->jsonb('json_data')->nullable();
             $table->timestamps();
             $table->foreign('venue_id')->references('uuid')->on('venues');
             $table->foreign('organizer_id')->references('uuid')->on('organizers');
-            $table->foreign('location_id')->references('uuid')->on('venues');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('category_id')->references('uuid')->on('categories');
         });
     }

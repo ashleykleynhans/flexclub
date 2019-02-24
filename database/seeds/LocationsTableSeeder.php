@@ -12,7 +12,7 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('locations')->insert(
+        DB::table('locations')->insert([
             [
                 'name'      => 'Cape Town',
                 'slug'      => 'cape-town',
@@ -26,6 +26,6 @@ class LocationsTableSeeder extends Seeder
                 'latitude'  => -26.1715173,
                 'longitude' => 28.0050051
             ]
-        );
+        ]);
     }
 }
