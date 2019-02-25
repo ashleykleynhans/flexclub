@@ -18,19 +18,15 @@ This test uses PHP 7.3.2, Laravel, 5.7.27, nginx 1.15.8, PostgreSQL 11.2 and Doc
 
         docker-compose up -d
 
-3. Run the database migrations
-
-        docker-compose exec app php artisan migrate
-
-4. Create a .env file
+3. Create a .env file
 
         docker-compose exec app cp .env.example .env
 
-5. Generate an applicate key
+4. Generate an applicate key
 
         docker-compose exec app php artisan key:generate
 
-6. Configure the database connection, edit the .env file and set the following:
+5. Configure the database connection, edit the .env file and set the following:
 
         DB_CONNECTION=pgsql
         DB_HOST=db
@@ -39,13 +35,17 @@ This test uses PHP 7.3.2, Laravel, 5.7.27, nginx 1.15.8, PostgreSQL 11.2 and Doc
         DB_USERNAME=flexclub
         DB_PASSWORD='Fl3X(1u8'
 
-7. Set the Eventbrite API Key, edit the .env file and set the following:
+6. Set the Eventbrite API Key, edit the .env file and set the following:
 
         EVENTBRITE_API_KEY=XXXXXXXXXXXXXXXXXXXXX
         
-8. Run composer update
+7. Run composer update
 
         docker-compose exec app composer update
+
+8. Run the database migrations
+
+        docker-compose exec app php artisan migrate
 
 9. The App listens for incoming connections at http://127.0.0.1 (on port 80, assuming that port 80 is not already in use)
 
