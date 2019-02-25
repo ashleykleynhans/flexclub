@@ -150,9 +150,9 @@ class ImportEvents extends Command
                                 $event->eventbrite_url = $eventToImport->url;
                                 $event->status = $eventToImport->status;
                                 $event->currency = $eventToImport->currency;
-                                $event->venue_id = $eventToImport->venue_id;
-                                $event->organizer_id = $eventToImport->organizer_id;
-                                $event->category_id = $eventToImport->category_id;
+                                $event->venue_uuid = $eventToImport->venue_id;
+                                $event->organizer_uuid = $eventToImport->organizer_id;
+                                $event->category_uuid = $eventToImport->category_id;
                                 $event->location_id = $location->id;
                                 $event->started_at = \Carbon\Carbon::parse($eventToImport->start->utc)->format('Y-m-d H:i:s');
                                 $event->ended_at = \Carbon\Carbon::parse($eventToImport->end->utc)->format('Y-m-d H:i:s');

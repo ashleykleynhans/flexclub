@@ -14,4 +14,6 @@ class Category extends Model
      */
     protected $table = 'categories';
 
+    protected $hidden = ['id', 'json_data', 'created_at', 'updated_at'];
+
 }

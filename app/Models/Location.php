@@ -14,4 +14,6 @@ class Location extends Model
      */
     protected $table = 'locations';
 
+    protected $hidden = ['json_data'];
+
 }

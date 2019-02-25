@@ -14,4 +14,6 @@ class Organizer extends Model
      */
     protected $table = 'organizers';
 
+    protected $hidden = ['json_data'];
+
 }

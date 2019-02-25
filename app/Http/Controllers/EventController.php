@@ -27,6 +27,12 @@ class EventController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * API Endpoint to search for Events
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function searchEvents(Request $request)
     {
         $venue_uuid = trim($request->input('venue_uuid'));
@@ -77,5 +83,34 @@ class EventController extends Controller
                 'error' => 'No events found matching the provided criteria.',
             ], 404);
         }
+    }
+
+    /**
+     * API Endpoint to get a single Event
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getEvent(Request $request)
+    {
+        $event_uuid = trim($request->event_uuid);
+
+        if (!$event_uuid && !is_numeric($event_uuid)) {
+            return response()->json([
+                'error' => 'Invalid event_uuid provided.',
+            ], 400);
+        }
+
+        $event = Event::where('uuid', $event_uuid)->first();
+
+        if (!$event->count()) {
+            return response()->json([
+                'error' => 'Event not found.',
+            ], 404);
+        }
+
+        return response()->json([
+            json_encode($event)
+        ], 200);
     }
 }

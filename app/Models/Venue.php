@@ -14,4 +14,6 @@ class Venue extends Model
      */
     protected $table = 'venues';
 
+    protected $hidden = ['json_data'];
+
 }

@@ -14,4 +14,6 @@ class Event extends Model
      */
     protected $table = 'events';
 
+    protected $hidden = ['id', 'json_data', 'created_at', 'updated_at'];
+
 }

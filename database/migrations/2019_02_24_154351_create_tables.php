@@ -53,18 +53,19 @@ class CreateTables extends Migration
             $table->string('eventbrite_url');
             $table->enum('status', ['draft', 'live', 'started', 'ended', 'canceled']);
             $table->string('currency', '3');
-            $table->bigInteger('venue_id')->unsigned();
-            $table->bigInteger('organizer_id')->unsigned();
+            $table->bigInteger('venue_uuid')->unsigned();
+            $table->bigInteger('organizer_uuid')->unsigned();
             $table->bigInteger('location_id')->unsigned();
-            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->bigInteger('category_uuid')->unsigned()->nullable();
             $table->dateTime('started_at');
             $table->dateTime('ended_at');
             $table->jsonb('json_data')->nullable();
             $table->timestamps();
-            $table->foreign('venue_id')->references('uuid')->on('venues');
-            $table->foreign('organizer_id')->references('uuid')->on('organizers');
+            $table->foreign('venue_uuid')->references('uuid')->on('venues');
+            $table->foreign('organizer_uuid')->references('uuid')->on('organizers');
             $table->foreign('location_id')->references('id')->on('locations');
-            $table->foreign('category_id')->references('uuid')->on('categories');
+            $table->foreign('category_uuid')->references('uuid')->on('categories');
+            $table->index('organizer_uuid');
         });
     }
 
