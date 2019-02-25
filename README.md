@@ -22,11 +22,7 @@ This test uses PHP 7.3.2, Laravel, 5.7.27, nginx 1.15.8, PostgreSQL 11.2 and Doc
 
         docker-compose exec app cp .env.example .env
 
-4. Generate an applicate key
-
-        docker-compose exec app php artisan key:generate
-
-5. Configure the database connection, edit the .env file and set the following:
+4. Configure the database connection, edit the .env file and set the following:
 
         DB_CONNECTION=pgsql
         DB_HOST=db
@@ -35,13 +31,17 @@ This test uses PHP 7.3.2, Laravel, 5.7.27, nginx 1.15.8, PostgreSQL 11.2 and Doc
         DB_USERNAME=flexclub
         DB_PASSWORD='Fl3X(1u8'
 
-6. Set the Eventbrite API Key, edit the .env file and set the following:
+5. Set the Eventbrite API Key, edit the .env file and set the following:
 
         EVENTBRITE_API_KEY=XXXXXXXXXXXXXXXXXXXXX
         
-7. Run composer update
+6. Run composer update
 
         docker-compose exec app composer update
+
+7. Generate an applicate key
+
+        docker-compose exec app php artisan key:generate
 
 8. Run the database migrations
 
