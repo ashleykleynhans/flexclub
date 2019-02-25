@@ -47,7 +47,11 @@ This test uses PHP 7.3.2, Laravel, 5.7.27, nginx 1.15.8, PostgreSQL 11.2 and Doc
 
         docker-compose exec app php artisan migrate
 
-9. The App listens for incoming connections at http://127.0.0.1 (on port 80, assuming that port 80 is not already in use)
+9. Seed the databasse
+
+        docker-compose exec app php artisan db:seed
+
+10. The App listens for incoming connections at http://127.0.0.1 (on port 80, assuming that port 80 is not already in use)
 
 ## Importing the data from the EventBrite API
 
