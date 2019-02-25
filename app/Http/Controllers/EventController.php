@@ -61,11 +61,11 @@ class EventController extends Controller
         $query = DB::table('events');
 
         if ($venue_uuid) {
-            $query->where('venue_id', $venue_uuid);
+            $query->where('venue_uuid', $venue_uuid);
         }
 
         if ($category_uuid) {
-            $query->where('category_id', $category_uuid);
+            $query->where('category_uuid', $category_uuid);
         }
 
         if ($start_date) {
@@ -76,7 +76,7 @@ class EventController extends Controller
 
         if ($events->count()) {
             return response()->json([
-                json_encode($events)
+                $events
             ], 200);
         } else {
             return response()->json([
@@ -110,7 +110,7 @@ class EventController extends Controller
         }
 
         return response()->json([
-            json_encode($event)
+            $event
         ], 200);
     }
 }

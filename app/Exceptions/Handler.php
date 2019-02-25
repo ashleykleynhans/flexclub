@@ -46,11 +46,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        // API Not found handler
+        // API error handler
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             return response()->json([
                 'error' => 'Resource not found'
             ], 404);
+        } else {
+            return response()->json([
+                'error' => 'Internal Server Error',
+                'detail' => $exception->getMessage()
+            ], 500);
         }
     }
 }

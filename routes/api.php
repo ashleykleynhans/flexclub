@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +13,8 @@ Route::prefix('/events')->group(function () {
 
 Route::prefix('/organizers')->group(function () {
     Route::get('/details/{organizer_uuid}', 'OrganizerController@getOrganizer');
+});
+
+Route::prefix('/stats')->group(function () {
+    Route::get('/', 'StatsController@getStats');
 });

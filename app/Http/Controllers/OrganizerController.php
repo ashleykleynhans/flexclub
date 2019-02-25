@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Venue;
 use Illuminate\Http\Request;
-use App\Models\Organizer;
-use Illuminate\Support\Facades\DB;
 
 class OrganizerController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Event Controller
+    | Organizer Controller
     |--------------------------------------------------------------------------
     |
     | This controller is responsible for handing the /organizers API endpoints
@@ -91,7 +89,7 @@ class OrganizerController extends Controller
         ];
 
         return response()->json([
-            json_encode($details)
+            $details
         ], 200);
     }
 }

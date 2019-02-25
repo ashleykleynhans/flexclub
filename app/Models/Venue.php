@@ -14,6 +14,6 @@ class Venue extends Model
      */
     protected $table = 'venues';
 
-    protected $hidden = ['json_data'];
+    protected $hidden = ['id', 'json_data', 'created_at', 'updated_at'];
 
 }
